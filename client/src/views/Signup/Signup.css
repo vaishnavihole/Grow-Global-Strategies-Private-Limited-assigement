@@ -1,0 +1,23 @@
+.signup-card-container{
+    background-color: white;
+    width: 500px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-bottom: 30px ;
+
+}
+
+.signup-heading{
+    text-align: center;
+}
+
+.signup-img{
+    height: 100px;
+    display: block;
+    margin:auto;
+
+}
+
