@@ -1,5 +1,7 @@
 import express from  'express';
 import mongoose from 'mongoose';
+import { postSignup } from './controllers/User.js'
+
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -15,7 +17,7 @@ async function connectToDB() {
 }
 connectToDB();
 
-
+app.post('/signup', postSignup)
 
 
 app.listen(PORT, () => {
