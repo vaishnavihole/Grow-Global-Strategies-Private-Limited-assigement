@@ -12,3 +12,17 @@ export const postSignup = async (req, res) => {
     const savedUser = await user.save()
     responder(res, savedUser, 'signup successfully')
 }
+
+export const postLogin = async (req, res) => {
+    const user = await User.findOne({
+        email: req.body.email,
+        password: req.body.password,
+    })
+
+    if (user) {
+        responder(res, user, 'User logged in successfully')
+    }
+    else {
+        responder(res, null, 'UserName or password is incorrect ')
+    }
+}
