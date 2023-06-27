@@ -35,3 +35,28 @@ export const deleteUser = async (req, res) => {
     responder(res, user, 'User deleted successfully')
 }
 
+
+export const putUser = async (req, res) => {
+    const { id } = req.params;
+    const { fullName, email, mobile, password } = req.body;
+
+    await User.updateOne(
+        {
+            _id: id,
+        },
+        {
+            $set: {
+                fullName,
+                email,
+                mobile,
+                password
+            },
+        }
+    );
+
+    const updatedUser = await User.findById(id);
+    responder(res, updatedUser, 'User updated successfully')
+}
+
+
+
