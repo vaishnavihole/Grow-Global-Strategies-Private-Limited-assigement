@@ -26,3 +26,12 @@ export const postLogin = async (req, res) => {
         responder(res, null, 'UserName or password is incorrect ')
     }
 }
+
+export const deleteUser = async (req, res) => {
+    const { email } = req.params;
+    const user = await User.deleteOne({
+        email: email,
+    });
+    responder(res, user, 'User deleted successfully')
+}
+

@@ -1,6 +1,6 @@
 import express from  'express';
 import mongoose from 'mongoose';
-import { postSignup, postLogin} from './controllers/User.js'
+import { postSignup, postLogin, deleteUser} from './controllers/User.js'
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -19,6 +19,7 @@ connectToDB();
 
 app.post('/signup', postSignup)
 app.post("/login",  postLogin)
+app.delete('/user/:email',  deleteUser)
 
 
 app.listen(PORT, () => {
