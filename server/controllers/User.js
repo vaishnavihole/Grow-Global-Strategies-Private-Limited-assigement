@@ -2,17 +2,23 @@ import responder from '../utils/resopnder.js';
 import User from './../models/User.js';
 
 export const postSignup = async (req, res) => {
-    const { fullName, email, password, mobile } = req.body
-    const user = new User({
+    try {
+      const { fullName, email, password, mobile } = req.body;
+  
+      const user = new User({
         fullName: fullName,
         email: email,
         mobile: mobile,
-        password: password
-    })
-    const savedUser = await user.save()
-    responder(res, savedUser, 'signup successfully')
-}
-
+        password: password,
+      });
+  
+      const savedUser = await user.save();
+      responder(res, savedUser, 'Signup successful');
+    } catch (error) {
+      console.error('Error during signup:', error);
+      responder(res, null, 'An error occurred during signup', 500);
+    }
+};
 export const postLogin = async (req, res) => {
     const user = await User.findOne({
         email: req.body.email,
