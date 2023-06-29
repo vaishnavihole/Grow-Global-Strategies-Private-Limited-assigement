@@ -24,7 +24,7 @@ function Signup() {
             text: "Signup successfully..🤗",
             icon: 'success'
         })
-        window.location.href="/login"
+       
     }
     else {
         swal({
